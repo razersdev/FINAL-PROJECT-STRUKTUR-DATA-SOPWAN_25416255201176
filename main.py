@@ -35,6 +35,17 @@ def tambah_barang():
     data = load_data()
 
     kode = input("Kode barang : ").strip().upper()
+
+    # Mengecek apakah kode barang sudah ada
+    for item in data:
+
+        if item["kode"].strip().upper() == kode:
+
+            print("Kode barang sudah digunakan!")
+            print("Silakan masukkan kode yang berbeda.")
+
+            return
+
     nama = input("Nama barang : ").strip().title()
     kategori = input("Kategori : ").strip().title()
     stok = input("Stok : ").strip()
@@ -53,6 +64,7 @@ def tambah_barang():
     save_data(data)
 
     print("Data berhasil ditambahkan")
+
 
 
 # ======== READ =========
